@@ -1,0 +1,36 @@
+{
+    "country":[
+        {
+            "country":"India",
+            "city":"Delhi",
+            "population":19000000,
+            "id":1
+        },
+        {
+            "country":"Pakistan",
+            "city":"Karachi",
+            "population":560000,
+            "id":2
+        },
+        {
+            "country":"China",
+            "city":"Beijing",
+            "population":20000000,
+            "id":3
+        },
+        {
+            "country":"Usa",
+            "city":"Chicago",
+            "population":600000,
+            "id":4
+        },
+        {
+            "country":"Srilanka",
+            "city":"Colombo",
+            "population":800000,
+            "id":5
+        }
+
+
+    ]
+}
