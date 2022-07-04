@@ -3,7 +3,7 @@ import logo from './logo.svg'
 import './App.css'
 import React from 'react'
 import axios from 'axios'
-import {useDispatch} from 'react-redux'
+import {useDispatch,useSelector} from 'react-redux'
 import { delActionRequest, delActionSuccess } from './redux/action'
 import {
   
@@ -20,9 +20,13 @@ import {
 
 import { Table } from '@chakra-ui/react'
 function App() {
+  const loading=useSelector(state=>state?.loading)
   const [count, setCount] = useState(0)
   const [data,setData]=useState([]);
   const dispatch=useDispatch()
+  const deleteFxn=((e)=>{
+    
+  })
  const sort=((e)=>{
    const {id}=e.target;
    console.log('id',id)
@@ -63,7 +67,7 @@ function App() {
 
 
     <Tbody>
-  {data.map((e)=>{
+  {data?.map((e)=>{
     return <>
       <Tr >
         <Th>{e.id}</Th>
@@ -71,7 +75,14 @@ function App() {
         <Th >{e.city}</Th>
         <Th>{e.population}</Th>
         <Th >Edit</Th>
-        <Th >Delete</Th>
+        <Th ><button disabled={loading==true} onClick={(()=>{
+          dispatch(delActionRequest()) 
+          axios.delete(`http://localhost:8080/country/${e.id}`).then((r)=>{
+           setData(r.data)
+          }).then((e)=>{
+           dispatch(delActionSuccess())
+          })
+        })} >delete</button></Th>
       </Tr>
     </>
   })}
