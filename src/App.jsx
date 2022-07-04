@@ -16,6 +16,7 @@ import {
   TableCaption,
   TableContainer,
   Button,
+  Spinner,
 } from '@chakra-ui/react'
 
 import { Table } from '@chakra-ui/react'
@@ -44,9 +45,9 @@ function App() {
   },[])
 
   return (
-    <div className="App">
    
-
+    <div className="App">
+    {loading==true?<Spinner/>:<div>  
 <div style={{display:"flex"}}>
   <Button onClick={sort} id='asc' >sort by asc</Button>
   <Button onClick={sort} id='dsc'  >Sort by dsc</Button>
@@ -96,8 +97,11 @@ function App() {
 
 
      
+    </div>}
+ 
     </div>
   )
+  
 }
 
 export default App
