@@ -42,7 +42,7 @@ import {
       <Tr>
         <Th>To convert</Th>
         <Th>into</Th>
-        <Th isNumeric>multiply by</Th>
+       
       </Tr>
     </Tfoot>
   </Table>
